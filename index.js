@@ -16,8 +16,7 @@ let p1 =(index,time)=>{
         //     return i;
         // });
         let res = await br.run('test',async ()=>{
-            await p1(i,Math.floor(Math.random()*1000+1));
-            return await p1(i,Math.floor(Math.random()*1000+1));
+            return await p1(i,Math.floor(Math.random()*5000+1));
         });
         console.log(res);
     }
