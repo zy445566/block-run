@@ -1,0 +1,25 @@
+{
+  "name": "block-run",
+  "version": "1.0.0",
+  "description": "block run code",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zy445566/block-run.git"
+  },
+  "keywords": [
+    "block-run",
+    "block",
+    "run",
+    "code"
+  ],
+  "author": "zy445566",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zy445566/block-run/issues"
+  },
+  "homepage": "https://github.com/zy445566/block-run#readme"
+}
