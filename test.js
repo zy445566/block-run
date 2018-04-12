@@ -26,7 +26,7 @@ co(function*(){
         for(let i = 0;i<10;i++)
         {
             let res = yield BlockRun.run('test',function* (){
-                return yield p1(i,1000);
+                return yield p1(i,2000);
             });
             assert.equal(res,i,'co yield failed'+res);
         }
@@ -42,7 +42,7 @@ co(function*(){
         for(let i = 0;i<10;i++)
         {
             let res = await BlockRun.run('test',async ()=>{
-                return await p1(i,1000);
+                return await p1(i,2000);
             });
             assert.equal(res,i,'async failed'+res);
         }
