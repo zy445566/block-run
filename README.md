@@ -1,20 +1,20 @@
 # block-run
 block run code
-Execute code in sequence by channels
+Execute code block in sequence by channels
 
 # install
 ```sh
 npm install block-run
 ```
 
-# example
+# base example
 ```js
 const assert = require('assert');
 const co = require('co');
 const BlockRun = require('block-run');
 
-//Promise
-BlockRun.run('test',()=>{
+//Promise 
+BlockRun.run('testChannel1',()=>{
     return 1;
 }).then((res)=>{
     assert.equal(res,1,'Promise failed');
@@ -31,12 +31,14 @@ let p1 =(index,time)=>{
     });
 }
 
+// testChannel2 make two async function in sequence 
+
 //co yield 
 co(function*(){
     try{
         for(let i = 0;i<10;i++)
         {
-            let res = yield BlockRun.run('test',function* (){
+            let res = yield BlockRun.run('testChannel2',function* (){
                 return yield p1(i,2000);
             });
             assert.equal(res,i,'co yield failed'+res);
@@ -52,7 +54,7 @@ co(function*(){
     try{
         for(let i = 0;i<10;i++)
         {
-            let res = await BlockRun.run('test',async ()=>{
+            let res = await BlockRun.run('testChannel3',async ()=>{
                 return await p1(i,2000);
             });
             assert.equal(res,i,'async failed'+res);

@@ -3,7 +3,7 @@ const co = require('co');
 const BlockRun = require('./index');
 
 //Promise
-BlockRun.run('test',()=>{
+BlockRun.run('testChannel1',()=>{
     return 1;
 }).then((res)=>{
     assert.equal(res,1,'Promise failed');
@@ -25,7 +25,7 @@ co(function*(){
     try{
         for(let i = 0;i<10;i++)
         {
-            let res = yield BlockRun.run('test',function* (){
+            let res = yield BlockRun.run('testChannel2',function* (){
                 return yield p1(i,2000);
             });
             assert.equal(res,i,'co yield failed'+res);
@@ -41,7 +41,7 @@ co(function*(){
     try{
         for(let i = 0;i<10;i++)
         {
-            let res = await BlockRun.run('test',async ()=>{
+            let res = await BlockRun.run('testChannel2',async ()=>{
                 return await p1(i,2000);
             });
             assert.equal(res,i,'async failed'+res);
