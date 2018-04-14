@@ -27,13 +27,13 @@ co(function*(){
         {
             let res = yield BlockRun.run('testChannel2',function* (){
                 return yield p1(i,2000);
-            });
+            },3000);
             console.log(res)
             assert.equal(res,i,'co yield failed'+res);
         }
     } catch(e)
     {
-        throw e;
+        console.error(e.stack)
     }
 });
 
@@ -44,12 +44,12 @@ co(function*(){
         {
             let res = await BlockRun.run('testChannel2',async ()=>{
                 return await p1(i,2000);
-            });
+            },3000);
             console.log(res)
             assert.equal(res,i,'async failed'+res);
         }
     } catch(e)
     {
-        throw e;
+        console.error(e.stack)
     }
 })();

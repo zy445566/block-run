@@ -7,6 +7,27 @@ Execute code block in sequence by channels
 npm install block-run
 ```
 
+# api
+### run
+-------------------------
+* FunctionName  run
+    * Return  anything
+    * Description  run block code in channel
+    * Param
+
+name        | type |require |default    |Description
+------------|------|--------|-----------|------------
+channel   |string|must  |null   |block code channel
+func |Function or GeneratorFunction or AsyncFunction|must  |null          |block code function
+funTimeout |number|option  |-1         |function timeout 
+
+### getQueue
+-------------------------
+* FunctionName  getQueue
+    * Return  object
+    * Description  get all channel queue
+    * Param nothing
+
 # base example
 ```js
 const assert = require('assert');
