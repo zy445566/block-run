@@ -28,6 +28,7 @@ co(function*(){
             let res = yield BlockRun.run('testChannel2',function* (){
                 return yield p1(i,2000);
             });
+            console.log(res)
             assert.equal(res,i,'co yield failed'+res);
         }
     } catch(e)
@@ -36,7 +37,7 @@ co(function*(){
     }
 });
 
-//async
+// //async
 (async () =>{
     try{
         for(let i = 0;i<10;i++)
@@ -44,6 +45,7 @@ co(function*(){
             let res = await BlockRun.run('testChannel2',async ()=>{
                 return await p1(i,2000);
             });
+            console.log(res)
             assert.equal(res,i,'async failed'+res);
         }
     } catch(e)
