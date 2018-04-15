@@ -86,3 +86,6 @@ co(function*(){
     }
 })();
 ```
+
+# other 
+[针对使用非块运行和块运行并发压测对比](https://github.com/zy445566/myBlog/tree/master/20180414block-run)
