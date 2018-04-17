@@ -1,6 +1,6 @@
 {
   "name": "block-run",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "block run code",
   "main": "index.js",
   "scripts": {

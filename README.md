@@ -87,5 +87,74 @@ co(function*(){
 })();
 ```
 
+# different
+## before
+### code:
+```js
+let p1 =(index,time)=>{
+   return new Promise((res,rej)=>{
+       setTimeout(()=>{
+           res(index);
+       },time)
+   });
+}
+
+(async () =>{
+       for(let i = 0;i<10;i++)
+       {
+            console.log(await p1(i,1000))
+       }
+})();
+(async () =>{
+       for(let i = 0;i<10;i++)
+       {
+            console.log(await p1(i,1000))
+       }
+})();
+```
+### result:
+```
+one seconds two number 
+two async function run at the same time
+```
+
+## aftar
+### code:
+```js
+const BlockRun = require('block-run');
+let p1 =(index,time)=>{
+   return new Promise((res,rej)=>{
+       setTimeout(()=>{
+           res(index);
+       },time)
+   });
+}
+
+(async () =>{
+       for(let i = 0;i<10;i++)
+       {
+           let res = await BlockRun.run('sameChannel',async ()=>{
+               return await p1(i,1000);
+           });
+		console.log(res)
+       }
+})();
+(async () =>{
+       for(let i = 0;i<10;i++)
+       {
+           let res = await BlockRun.run('sameChannel',async ()=>{
+               return await p1(i,1000);
+           });
+		console.log(res)
+       }
+})();
+```
+### result:
+```
+one seconds one number 
+two async function run in sequence by same channel name
+```
+
+
 # other 
 [针对使用非块运行和块运行并发压测对比](https://github.com/zy445566/myBlog/tree/master/20180414block-run)
